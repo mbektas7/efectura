@@ -1,0 +1,2 @@
+Efectura.Controllers.UserController.Post--- InnerExp: String or binary data would be truncated in table 'EFECTURA.dbo.Users', column 'TCKN'. Truncated value: 'd3870155-13'.
+The statement has been terminated.
