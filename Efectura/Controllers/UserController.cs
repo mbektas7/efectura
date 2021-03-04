@@ -27,7 +27,7 @@ namespace Efectura.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<ActionResult> Get()
         {
             var users = _userRepository.GetUsers();
             return new OkObjectResult(users);
@@ -35,7 +35,7 @@ namespace Efectura.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{TCKN}")]
-        public IActionResult Get(string TCKN)
+        public async Task<ActionResult> Get(string TCKN)
         {
             var user = _userRepository.GetUserByTCKN(TCKN);
             return new OkObjectResult(user);
@@ -43,7 +43,7 @@ namespace Efectura.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public IActionResult Post([FromBody] UserDTO user)
+        public async Task<ActionResult> Post([FromBody] UserDTO user)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Efectura.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{TCKN}")]
-        public IActionResult Put(string TCKN, [FromBody] UserDTO user)
+        public async Task<ActionResult> Put(string TCKN, [FromBody] UserDTO user)
         {
             if (!ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Efectura.Controllers
                     existUser.Name = user.name;
                     existUser.Surname = user.surname;
 
-                    _userRepository.UpdateUser(existUser);
+                     _userRepository.UpdateUser(existUser);
                     scope.Complete();
                     return new OkResult();
                 }
@@ -105,10 +105,14 @@ namespace Efectura.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{TCKN}")]
-        public IActionResult Delete(string tckn)
+        public async Task<ActionResult> Delete(string tckn)
         {
+            if (tckn == null)
+            {
+                return NotFound("TCKN bulunamadı");
+            }
             _userRepository.DeleteUser(tckn);
-            return new OkResult();
+            return Ok("Kayıt silindi");
         }
     }
 }

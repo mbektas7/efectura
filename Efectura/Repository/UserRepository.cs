@@ -35,12 +35,17 @@ namespace Efectura.Repository
 
         public void InsertUser(User User)
         {
+            if (User == null)
+            {
+                throw new ArgumentNullException(nameof(User));
+            }
             _dbContext.Add(User);
             Save();
         }
 
         public void Save()
         {
+
             _dbContext.SaveChanges();
         }
 

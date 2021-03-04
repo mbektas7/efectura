@@ -37,13 +37,13 @@ namespace Efectura
                 c.SwaggerDoc("v1",
                     new Microsoft.OpenApi.Models.OpenApiInfo
                     {
-                        Title = "Efectura User API",
+                        Title = "Efectura User Management API",
                         Version = "v1",
                         Description = "mbektas7@gmail.com"
                     });
-
             });
 
+            //Custom Error Exception Filter
             services.AddScoped<ErrorLog>();
 
 
@@ -71,7 +71,7 @@ namespace Efectura
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Efectura V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Efectura User Management API");
                 c.RoutePrefix = "swagger.html";
 
             });

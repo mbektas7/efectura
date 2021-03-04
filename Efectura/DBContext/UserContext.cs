@@ -24,31 +24,8 @@ namespace Efectura.DBContext
         {  
         }
 
-    //    public override Task<int> SaveChangesAsync(
-    //bool acceptAllChangesOnSuccess,
-    //CancellationToken cancellationToken = default(CancellationToken))
-    //    {
-    //        var AddedEntities = ChangeTracker.Entries()
-    //            .Where(E => E.State == EntityState.Added)
-    //            .ToList();
 
-    //        AddedEntities.ForEach(E =>
-    //        {
-    //            E.Property("CreationDate").CurrentValue = DateTime.Now;
-    //        });
-
-    //        var EditedEntities = ChangeTracker.Entries()
-    //            .Where(E => E.State == EntityState.Modified)
-    //            .ToList();
-
-    //        EditedEntities.ForEach(E =>
-    //        {
-    //            E.Property("LastModified").CurrentValue = DateTime.Now;
-    //        });
-
-    //        return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-    //    }
-
+        // Override Save Method for update LastModified field for every record.
         public override int SaveChanges()
         {
             DateTime saveTime = DateTime.Now;

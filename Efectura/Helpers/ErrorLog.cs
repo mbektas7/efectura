@@ -14,7 +14,6 @@ namespace Efectura.Helpers
         public void OnException(ExceptionContext context)
         {
             // Bu kısım özelleştirilebilir.
-
             var controllerActionDescriptor = context.ActionDescriptor as ControllerActionDescriptor;
             //exception oluşan metotun bilgisi 
             var methodDescriptor = string.Format("{0}.{1}.{2}", controllerActionDescriptor.MethodInfo.ReflectedType.Namespace,
