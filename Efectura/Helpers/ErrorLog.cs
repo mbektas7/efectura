@@ -20,7 +20,7 @@ namespace Efectura.Helpers
                 controllerActionDescriptor.MethodInfo.ReflectedType.Name,
                 controllerActionDescriptor.MethodInfo.Name);
 
-            Functions.WriteLog(methodDescriptor.ToString()+"--- InnerExp: "+context.Exception.InnerException.Message);
+            Functions.WriteLog(methodDescriptor.ToString());
         }
     }
 }

@@ -105,13 +105,13 @@ namespace Efectura.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{TCKN}")]
-        public async Task<ActionResult> Delete(string tckn)
+        public async Task<ActionResult> Delete(string TCKN)
         {
-            if (tckn == null)
+            if (TCKN == null)
             {
                 return NotFound("TCKN bulunamadı");
             }
-            _userRepository.DeleteUser(tckn);
+            _userRepository.DeleteUser(TCKN);
             return Ok("Kayıt silindi");
         }
     }

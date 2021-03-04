@@ -19,8 +19,13 @@ namespace Efectura.Repository
         public void DeleteUser(string TCKN)
         {
             var User = _dbContext.Users.Find(TCKN);
-            _dbContext.Users.Remove(User);
-            Save();
+            if (User!=null)
+            {
+                _dbContext.Users.Remove(User);
+                Save();
+            }
+           else
+                throw new ArgumentNullException(nameof(User));
         }
 
         public User GetUserByTCKN(string TCKN)

@@ -1,0 +1,2 @@
+Efectura.Controllers.UserController.Delete
+Efectura.Controllers.UserController.Delete
